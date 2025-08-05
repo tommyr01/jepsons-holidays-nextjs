@@ -1,0 +1,34 @@
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="motorhomeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main body -->
+  <rect x="40" y="60" width="320" height="80" rx="10" fill="url(#motorhomeGradient)" />
+  
+  <!-- Windscreen -->
+  <rect x="300" y="50" width="60" height="40" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+  
+  <!-- Windows -->
+  <rect x="80" y="70" width="30" height="20" rx="3" fill="#e5e7eb" stroke="#6b7280" stroke-width="1" />
+  <rect x="140" y="70" width="30" height="20" rx="3" fill="#e5e7eb" stroke="#6b7280" stroke-width="1" />
+  <rect x="200" y="70" width="30" height="20" rx="3" fill="#e5e7eb" stroke="#6b7280" stroke-width="1" />
+  <rect x="260" y="70" width="30" height="20" rx="3" fill="#e5e7eb" stroke="#6b7280" stroke-width="1" />
+  
+  <!-- Wheels -->
+  <circle cx="80" cy="160" r="20" fill="#374151" />
+  <circle cx="80" cy="160" r="12" fill="#6b7280" />
+  <circle cx="320" cy="160" r="20" fill="#374151" />
+  <circle cx="320" cy="160" r="12" fill="#6b7280" />
+  
+  <!-- Door -->
+  <rect x="50" y="80" width="25" height="60" rx="3" fill="#dc2626" stroke="#991b1b" stroke-width="1" />
+  <circle cx="67" cy="110" r="2" fill="#fbbf24" />
+  
+  <!-- Headlights -->
+  <circle cx="370" cy="100" r="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" />
+  <circle cx="370" cy="120" r="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+</svg>
