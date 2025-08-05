@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Allow Google bots
+User-agent: Googlebot
+Allow: /
+
+# Block access to admin/private areas (none currently)
+# Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://jepsonsholidays.co.uk/sitemap.xml
+Sitemap: https://jepsonsholidays.co.uk/sitemap-0.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
