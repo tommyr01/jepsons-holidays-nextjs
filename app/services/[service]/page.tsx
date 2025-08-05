@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { getServiceBySlug, services, getServicesByCategory } from '@/data/services';
+import { getServiceBySlug, getServicesByCategory } from '@/data/services';
 import { fleetVehicles } from '@/data/fleet';
 import { businessInfo } from '@/data/business';
 import { generateMeta, metaDescriptions } from '@/lib/seo/meta';
@@ -138,7 +138,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                 </p>
                 <p className="text-gray-600">
                   With over {new Date().getFullYear() - parseInt(businessInfo.founded)} years of experience in the motorhome hire industry, 
-                  we've perfected our service to ensure you have the best possible touring experience.
+                  we&apos;ve perfected our service to ensure you have the best possible touring experience.
                 </p>
                 <div className="bg-orange-50 p-6 rounded-lg">
                   <h4 className="font-semibold text-gray-900 mb-2">Expert Tip</h4>

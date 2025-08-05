@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { getLocationBySlug, locations, getNearbyLocations } from '@/data/locations';
+import { getLocationBySlug, getNearbyLocations } from '@/data/locations';
 import { fleetVehicles } from '@/data/fleet';
 import { businessInfo } from '@/data/business';
 import { generateMeta, metaDescriptions } from '@/lib/seo/meta';
@@ -71,7 +71,7 @@ export default function LocationServicePage({ params }: LocationServicePageProps
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
               Premium motorhome rental serving {location.name} and surrounding areas. 
-              Based in {businessInfo.address.addressLocality}, we're just {location.driveTime} away from {location.name}.
+              Based in {businessInfo.address.addressLocality}, we&apos;re just {location.driveTime} away from {location.name}.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

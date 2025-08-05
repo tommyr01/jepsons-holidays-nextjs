@@ -24,10 +24,10 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <h3 className="text-white text-xl font-bold mb-4">
-              Jepson's <span className="text-orange-500">Holidays</span>
+              Jepson&apos;s <span className="text-orange-500">Holidays</span>
             </h3>
             <p className="mb-4 text-sm">
-              {businessInfo.description}
+              {businessInfo.description.replace("'", "&apos;")}
             </p>
             <div className="space-y-2">
               <a 
