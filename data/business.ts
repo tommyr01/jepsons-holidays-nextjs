@@ -2,7 +2,7 @@
 export const businessInfo = {
   name: "Jepson's Holidays",
   legalName: "Jepson's Holidays Ltd",
-  description: "Family-owned motorhome hire company serving the North West, Ribble Valley, and beyond since 1985. Specializing in luxury motorhome rentals and holiday homes.",
+  description: "Family-owned motorhome hire company serving the North West, Ribble Valley, and beyond since 2019. Specializing in luxury motorhome rentals and holiday homes.",
   phone: "01200 442244",
   email: "enquiries@jepsonsholidays.co.uk",
   address: {
@@ -37,9 +37,29 @@ export const businessInfo = {
     "Burnley",
     "Lancaster"
   ],
-  founded: "1985",
+  founded: "2019",
   logo: "/images/jepsons-logo.svg",
-  image: "/images/jepsons-office.jpg"
+  image: "/images/jepsons-office.jpg",
+  rentalTerms: {
+    minimumAge: 25,
+    drivingExperience: 7, // years
+    deposit: 1000, // £1000 damage excess
+    included: [
+      "UK & EU insurance",
+      "Unlimited mileage", 
+      "Breakdown cover",
+      "Crockery and kitchen equipment",
+      "Outside table and chairs",
+      "LPG gas",
+      "8am-10pm helpline",
+      "Secure car parking"
+    ],
+    requirements: [
+      "Clean driver's license",
+      "Minimum 7 years driving experience",
+      "Must be 25 years or older"
+    ]
+  }
 } as const;
 
 // For structured data

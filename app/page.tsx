@@ -7,7 +7,7 @@ import { services } from '@/data/services';
 import { Phone, MapPin, Calendar, Star, Users, Heart, Zap } from 'lucide-react';
 
 export default function Home() {
-  const featuredVehicles = fleetVehicles; // Show all 4 vehicles
+  const featuredVehicles = fleetVehicles; // Show all 7 vehicles
   const topLocations = locations.slice(0, 6);
   const featuredServices = services.filter(s => s.category === 'feature').slice(0, 3);
 
@@ -47,7 +47,7 @@ export default function Home() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Premium Fleet</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {featuredVehicles.map((vehicle) => (
               <Link key={vehicle.id} href={`/vehicles/${vehicle.id}`} className="group">
                 <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow relative">
