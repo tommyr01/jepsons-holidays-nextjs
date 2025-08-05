@@ -10,22 +10,23 @@ import { SchemaMarkup } from '@/components/seo/SchemaMarkup';
 import { Phone, MapPin, Calendar, Star, Clock, Users } from 'lucide-react';
 
 interface LocationServicePageProps {
-  params: {
+  params: Promise<{
     location: string;
     service: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({
   params,
 }: LocationServicePageProps): Promise<Metadata> {
-  const location = getLocationBySlug(params.location);
+  const resolvedParams = await params;
+  const location = getLocationBySlug(resolvedParams.location);
   
   if (!location) {
     return generateMeta({
       title: 'Page Not Found',
       description: 'The page you are looking for could not be found.',
-      path: `/${params.location}/${params.service}`,
+      path: `/${resolvedParams.location}/${resolvedParams.service}`,
       noindex: true
     });
   }
@@ -36,12 +37,13 @@ export async function generateMetadata({
   return generateMeta({
     title,
     description,
-    path: `/${params.location}/${params.service}`
+    path: `/${resolvedParams.location}/${resolvedParams.service}`
   });
 }
 
-export default function LocationServicePage({ params }: LocationServicePageProps) {
-  const location = getLocationBySlug(params.location);
+export default async function LocationServicePage({ params }: LocationServicePageProps) {
+  const resolvedParams = await params;
+  const location = getLocationBySlug(resolvedParams.location);
   
   if (!location) {
     notFound();

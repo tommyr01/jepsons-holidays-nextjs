@@ -10,9 +10,9 @@ import { SchemaMarkup } from '@/components/seo/SchemaMarkup';
 import { Phone, Check, Star, Users, Heart, Zap, Calendar } from 'lucide-react';
 
 interface ServicePageProps {
-  params: {
+  params: Promise<{
     service: string;
-  };
+  }>;
 }
 
 const iconMap = {
@@ -26,13 +26,14 @@ const iconMap = {
 export async function generateMetadata({
   params,
 }: ServicePageProps): Promise<Metadata> {
-  const service = getServiceBySlug(params.service);
+  const resolvedParams = await params;
+  const service = getServiceBySlug(resolvedParams.service);
   
   if (!service) {
     return generateMeta({
       title: 'Service Not Found',
       description: 'The service you are looking for could not be found.',
-      path: `/services/${params.service}`,
+      path: `/services/${resolvedParams.service}`,
       noindex: true
     });
   }
@@ -43,12 +44,13 @@ export async function generateMetadata({
   return generateMeta({
     title,
     description,
-    path: `/services/${params.service}`
+    path: `/services/${resolvedParams.service}`
   });
 }
 
-export default function ServicePage({ params }: ServicePageProps) {
-  const service = getServiceBySlug(params.service);
+export default async function ServicePage({ params }: ServicePageProps) {
+  const resolvedParams = await params;
+  const service = getServiceBySlug(resolvedParams.service);
   
   if (!service) {
     notFound();
@@ -115,7 +117,7 @@ export default function ServicePage({ params }: ServicePageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                What's Included
+                What&apos;s Included
               </h2>
               <div className="space-y-4">
                 {service.features.map((feature) => (

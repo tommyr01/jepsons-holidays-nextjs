@@ -9,21 +9,22 @@ import { SchemaMarkup } from '@/components/seo/SchemaMarkup';
 import { Phone, Check, Star, Users, Fuel, Calendar, Settings, Shield } from 'lucide-react';
 
 interface VehiclePageProps {
-  params: {
+  params: Promise<{
     vehicle: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({
   params,
 }: VehiclePageProps): Promise<Metadata> {
-  const vehicle = fleetVehicles.find(v => v.id === params.vehicle);
+  const resolvedParams = await params;
+  const vehicle = fleetVehicles.find(v => v.id === resolvedParams.vehicle);
   
   if (!vehicle) {
     return generateMeta({
       title: 'Vehicle Not Found',
       description: 'The vehicle you are looking for could not be found.',
-      path: `/vehicles/${params.vehicle}`,
+      path: `/vehicles/${resolvedParams.vehicle}`,
       noindex: true
     });
   }
@@ -34,12 +35,13 @@ export async function generateMetadata({
   return generateMeta({
     title,
     description,
-    path: `/vehicles/${params.vehicle}`
+    path: `/vehicles/${resolvedParams.vehicle}`
   });
 }
 
-export default function VehiclePage({ params }: VehiclePageProps) {
-  const vehicle = fleetVehicles.find(v => v.id === params.vehicle);
+export default async function VehiclePage({ params }: VehiclePageProps) {
+  const resolvedParams = await params;
+  const vehicle = fleetVehicles.find(v => v.id === resolvedParams.vehicle);
   
   if (!vehicle) {
     notFound();
@@ -148,7 +150,7 @@ export default function VehiclePage({ params }: VehiclePageProps) {
                   ))}
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">What's Included</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">What&apos;s Included</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {vehicle.included.map((item) => (
                     <div key={item} className="flex items-start gap-3">
